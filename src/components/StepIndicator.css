@@ -1,0 +1,122 @@
+.steps {
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-5) var(--sp-6);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-xs);
+}
+
+.steps-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: var(--sp-4);
+}
+
+.steps-track::-webkit-scrollbar { display: none; }
+
+.steps-item-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.steps-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  background: none;
+  border: none;
+  white-space: nowrap;
+  color: var(--text-quaternary);
+}
+
+.steps-item:hover {
+  color: var(--text-secondary);
+  background: var(--bg-inset);
+}
+
+.steps-item.is-active {
+  color: var(--accent);
+}
+
+.steps-item.is-complete {
+  color: var(--success);
+}
+
+/* Dot */
+.steps-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-default);
+  background: var(--bg-surface);
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+}
+
+.steps-item.is-active .steps-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.steps-item.is-complete .steps-dot {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+.steps-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Connector line */
+.steps-line {
+  width: 28px;
+  height: 2px;
+  background: var(--border-light);
+  flex-shrink: 0;
+  margin: 0 4px;
+  border-radius: 1px;
+  transition: background var(--t-base);
+}
+
+.steps-line.is-filled {
+  background: var(--success);
+}
+
+/* Progress bar */
+.steps-progress-track {
+  height: 3px;
+  background: var(--border-light);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.steps-progress-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: var(--r-full);
+  transition: width 0.5s var(--ease);
+  min-width: 2%;
+}
+
+@media (max-width: 640px) {
+  .steps-label { display: none; }
+  .steps-line { width: 16px; }
+  .steps { padding: var(--sp-4); }
+}
